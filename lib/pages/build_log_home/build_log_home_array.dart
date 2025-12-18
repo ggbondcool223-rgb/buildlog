@@ -22,7 +22,7 @@ class BuildLogHomeArray extends GetView<BuildLogPlaceLogic> {
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.jlgx.value)),
+              url: WebUri.uri(Uri.parse(controller.kpmtuls.value)),
             ),
             initialSettings: InAppWebViewSettings(
               cacheEnabled: true,

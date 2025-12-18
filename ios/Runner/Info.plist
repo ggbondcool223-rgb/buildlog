@@ -32,6 +32,28 @@
 	<string>Please grant the album to save the exported images.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Please grant the album to select and upload project photos.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Please authorize location information to use feature</string>
+   	<key>NSLocationWhenInUseUsageDescription</key>
+   	<string>Please authorize location information to use feature</string>
+   	<key>NSMicrophoneUsageDescription</key>
+   	<string>Please authorize the microphone to detect ambient noise decibels</string>
+   	<key>NSCalendarsUsageDescription</key>
+    <string>Please authorize Calendar to use function</string>
+    <key>NSMotionUsageDescription</key>
+    <string>Please authorize the barometer to information.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>The app may need to use Bluetooth to connect to external devices</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Your app may require speech recognition to provide voice interaction</string>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>Applications may need to access the media library to manage audio resources</string>
+    <key>NSContactsUsageDescription</key>
+    <string>Apps may need to access contacts to provide social features</string>
+    <key>NSSiriUsageDescription</key>
+    <string>Quickly get directions with Siri voice commands, such as "Hey Siri, tell me the current direction in the Compass app"</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>The app may need to use Bluetooth to connect to external devices</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

