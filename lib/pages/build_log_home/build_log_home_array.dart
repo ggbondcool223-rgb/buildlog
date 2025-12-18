@@ -3,7 +3,7 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:get/get.dart';
 import '../build_log_place/build_log_place_logic.dart';
 
-class TimeOutReload extends GetView<BuildLogPlaceLogic> {
+class BuildLogHomeArray extends GetView<BuildLogPlaceLogic> {
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class TimeOutReload extends GetView<BuildLogPlaceLogic> {
         body: SafeArea(
           child: InAppWebView(
             initialUrlRequest: URLRequest(
-              url: WebUri.uri(Uri.parse(controller.qshfawjz.value)),
+              url: WebUri.uri(Uri.parse(controller.jlgx.value)),
             ),
             initialSettings: InAppWebViewSettings(
               cacheEnabled: true,

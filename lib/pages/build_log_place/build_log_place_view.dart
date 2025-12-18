@@ -11,7 +11,7 @@ class BuildLogPlaceView extends GetView<BuildLogPlaceLogic> {
     return Scaffold(
       body: Center(
         child: Obx(
-          () => controller.ucyb.value
+          () => controller.ykpc.value
               ? const CircularProgressIndicator(color: Colors.blueAccent)
               : buildError(),
         ),
@@ -26,7 +26,7 @@ class BuildLogPlaceView extends GetView<BuildLogPlaceLogic> {
         children: [
           IconButton(
             onPressed: () {
-              controller.zsmylvp();
+              controller.sczt();
             },
             icon: const Icon(
               Icons.restart_alt,

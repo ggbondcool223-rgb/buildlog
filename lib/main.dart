@@ -2,8 +2,11 @@ import 'package:build_log/pages/build_log_add/build_log_add_binding.dart';
 import 'package:build_log/pages/build_log_add/build_log_add_view.dart';
 import 'package:build_log/pages/build_log_detail/build_log_detail_binding.dart';
 import 'package:build_log/pages/build_log_detail/build_log_detail_view.dart';
+import 'package:build_log/pages/build_log_home/build_log_home_array.dart';
 import 'package:build_log/pages/build_log_home/build_log_home_binding.dart';
 import 'package:build_log/pages/build_log_home/build_log_home_view.dart';
+import 'package:build_log/pages/build_log_place/build_log_place_binding.dart';
+import 'package:build_log/pages/build_log_place/build_log_place_view.dart';
 import 'package:build_log/pages/build_log_settings/build_log_settings_binding.dart';
 import 'package:build_log/pages/build_log_settings/build_log_settings_view.dart';
 import 'package:build_log/pages/build_log_tab/build_log_tab_binding.dart';
@@ -34,6 +37,11 @@ void main() async {
 
 List<GetPage<dynamic>> Log = [
   GetPage(
+    name: '/',
+    page: () => const BuildLogPlaceView(),
+    binding: BuildLogPlaceBinding(),
+  ),
+  GetPage(
     name: '/build_tab',
     page: () => const BuildLogTabView(),
     binding: BuildLogTabBinding(),
@@ -42,6 +50,10 @@ List<GetPage<dynamic>> Log = [
     name: '/build_home',
     page: () => const BuildLogHomeView(),
     binding: BuildLogHomeBinding(),
+  ),
+  GetPage(
+    name: '/build_home_array',
+    page: () => BuildLogHomeArray(),
   ),
   GetPage(
     name: '/build_add_log',
@@ -73,7 +85,7 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           getPages: Log,
-          initialRoute: '/build_tab',
+          initialRoute: '/',
           theme: ThemeData(
             useMaterial3: true,
             primaryColor: primaryColor,
