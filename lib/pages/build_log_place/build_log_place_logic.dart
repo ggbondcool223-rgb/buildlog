@@ -92,7 +92,6 @@ class BuildLogPlaceLogic extends GetxController {
       wcpf = gptqzowi.identifierForVendor ?? "";
       eahsb  = gptqzowi.isPhysicalDevice;
     }
-
     var res = {
       "aoykgln": aoykgln,
       "jhnk": jhnk,

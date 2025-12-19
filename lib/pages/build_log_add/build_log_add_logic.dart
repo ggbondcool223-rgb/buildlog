@@ -69,9 +69,6 @@ class BuildLogAddLogic extends GetxController {
       final status = await Permission.camera.request();
       if (status.isDenied || status.isPermanentlyDenied) {
         errorToast('Please enable camera permission in settings');
-        if (status.isPermanentlyDenied) {
-          await openAppSettings();
-        }
         return;
       }
 
@@ -91,9 +88,6 @@ class BuildLogAddLogic extends GetxController {
       final status = await Permission.photos.request();
       if (status.isDenied || status.isPermanentlyDenied) {
         errorToast('Please enable photo library permission in settings');
-        if (status.isPermanentlyDenied) {
-          await openAppSettings();
-        }
         return;
       }
 
